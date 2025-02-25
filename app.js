@@ -28,6 +28,7 @@ const runQueries = async () => {
     await createCustomer();
     await viewAll();
     await updateCustomer();
+    await deleteCustomer();
 };
 
 connect()
@@ -77,6 +78,10 @@ const createCustomer = async () => {
 
 const viewAll = async () => {
     const customers = await Customer.find();
+
+    if (customers.length === 0) {
+        console.log('No customers found.');
+    }
 
     customers.forEach((customer, index) => {
         console.log(`${index + 1}. ${customer.name} - ${customer.age}`);

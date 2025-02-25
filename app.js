@@ -46,8 +46,12 @@ Number of action to run:
 
 // welcome();
 
-const createCustomer = () => {
+const createCustomer = async () => {
+    const name = prompt('Enter customer name: ');
+    const age = prompt('Enter customer age: ');
 
+    const customer = new Customer({ name, age});
+    await customer.create();
 };
 
 const viewAll = () => {

@@ -48,6 +48,8 @@ const welcome = () => {
             createCustomer();
         } else if (action === '2') {
             viewAll();
+        } else if (action === '5') {
+            quitApp();
         } else {
             console.log('Invalid option.');
         };
@@ -83,5 +85,6 @@ const deleteCustomer = () => {
 };
 
 const quitApp = () => {
-
+    console.log('exiting...');
+    mongoose.connection.close();
 };

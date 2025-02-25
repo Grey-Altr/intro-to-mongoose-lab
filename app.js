@@ -52,6 +52,8 @@ const createCustomer = async () => {
 
     const customer = new Customer({ name, age});
     await customer.create();
+
+    console.log('New customer created.')
 };
 
 const viewAll = () => {

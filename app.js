@@ -56,8 +56,12 @@ const createCustomer = async () => {
     console.log('New customer created.')
 };
 
-const viewAll = () => {
+const viewAll = async () => {
+    const customers = await Customer.find();
 
+    customers.forEach((customer, index) => {
+        console.log(`${index + 1}. ${customer.name} - ${customer.age}`);
+    });
 };
 
 const updateCustomer = () => {

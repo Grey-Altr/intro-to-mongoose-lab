@@ -37,11 +37,31 @@ What would you like to do?
   2. View all customers
   3. Update a customer
   4. Delete a customer
-  5. quit
+  5. Quit
 
 Number of action to run: 
-# user inputs 3
+# user inputs 5
 `);
 };
 
-welcome();
+// welcome();
+
+const createCustomer = () => {
+
+};
+
+const viewAll = () => {
+
+};
+
+const updateCustomer = () => {
+
+};
+
+const deleteCustomer = () => {
+
+};
+
+const quitApp = () => {
+
+};

@@ -15,6 +15,8 @@ const connect = async () => {
 
     await runQueries();
 
+    welcome();
+
     await mongoose.disconnect();
     console.log('Disconnected from MongoDB');
 
@@ -29,28 +31,36 @@ connect()
 
 
 const welcome = () => {
-    prompt(`Welcome to the CRM
+    while (true) {
+        const action = prompt(`Welcome to the CRM
 
-What would you like to do?
+        What would you like to do?
 
-  1. Create a customer
-  2. View all customers
-  3. Update a customer
-  4. Delete a customer
-  5. Quit
+          1. Create a customer
+          2. View all customers
+          3. Update a customer
+          4. Delete a customer
+          5. Quit
 
-Number of action to run: 
-# user inputs 5
-`);
+        Number of action to run: `);
+
+        if (action ==='1') {
+            createCustomer();
+        } else if (action === '2') {
+            viewAll();
+        } else {
+            console.log('Invalid option.');
+        };
+    };
 };
 
-// welcome();
+
 
 const createCustomer = async () => {
     const name = prompt('Enter customer name: ');
     const age = prompt('Enter customer age: ');
 
-    const customer = new Customer({ name, age});
+    const customer = new Customer({ name, age });
     await customer.create();
 
     console.log('New customer created.')
